@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="https://kit.fontawesome.com/7a4b62b0a4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* PRODUCT PAGE */
+
+        .product-detail {
+            max-width: 1100px;
+            margin: 60px auto;
+            display: flex;
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .product-img {
+            width: 420px;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-info h1 {
+            font-size: 32px;
+        }
+
+        .price {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0072ff;
+            margin: 15px 0;
+        }
+
+        .add-btn {
+            padding: 14px 30px;
+            border: none;
+            background: #0072ff;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .back-btn {
+            position: absolute;
+            left: 30px;
+            top: 100px;
+            padding: 10px 18px;
+            border: none;
+            background: #111;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="head">
+
+        <div class="logo">
+            <i class="fa-solid fa-bag-shopping"></i> ModernStore
+        </div>
+
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <nav class="nav" id="navbar">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact.html">Contact</a>
+            <a href="#about">About Us</a>
+
+            <a href="login.html" id="loginLink">Login</a>
+
+            <div class="profile-menu" id="profileMenu" style="display:none">
+                <span id="usernameDisplay" ondblclick="toggleProfile()">User</span>
+
+                <div class="profile-dropdown" id="profileDropdown">
+                    <a href="#">Profile</a>
+                    <a href="cart.html">My Orders</a>
+                    <a href="login.html" onclick="logout()">Logout</a>
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="cart-icon">
+            <i class="fa fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div>
+
+    </header>
+
+
+    <!-- PRODUCT DETAIL -->
+
+    <section class="product-detail">
+
+        <button onclick="goBack()" class="back-btn">
+            ← Back
+        </button>
+
+        <img  id="detailImg" class="product-img" > 
+    
+        <div class="product-info">
+
+            <h1 id="detailName"></h1>
+
+            <p class="price" id="detailPrice"></p>
+
+            <p id="detailDesc">
+                Premium modern tech product designed for performance,
+                comfort and long durability.
+            </p>
+
+            <button id="detailCart" class="add-btn">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-section">
+
+                <h2 class="footer-logo">
+                    <i class="fa-solid fa-bag-shopping"></i> ModernStore
+                </h2>
+
+                <p>
+                    Your trusted destination for modern tech products.
+                    Shop smart, live smarter.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 ModernStore. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+
+    <script src="../js/index.js"></script>
+
+
+    <script>
+
+        /* BACK BUTTON */
+
+        function goBack() {
+            window.history.back();
+        }
+
+
+        /* PRODUCT DETAIL LOADER */
+
+        function loadProductDetail() {
+
+            const params = new URLSearchParams(window.location.search)
+            console.log("location :",params.get("id"))
+            const id = parseInt(params.get("id"))
+
+            if (!id) return
+
+            const product = products.find(p => p.id === id)
+            console.log(product)
+            if (!product) return
+
+            document.getElementById("detailImg").src = product.image
+            document.getElementById("detailName").innerText = product.name
+            document.getElementById("detailPrice").innerText = "$" + product.price
+
+            document.getElementById("detailCart").onclick = function () {
+                addToCart(product.id)
+            }
+
+        }
+
+
+        /* PAGE LOAD */
+
+        document.addEventListener("DOMContentLoaded", function () {
+            loadProductDetail()
+            updateCartCount()
+
+        })
+
+    </script>
+
+
+</body>
+
+</html>

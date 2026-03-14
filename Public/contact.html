@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+   <header class="head">
+
+        <div class="logo">
+            <i class="fa-solid fa-bag-shopping"></i> ModernStore
+        </div>
+
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <nav class="nav" id="navbar">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact.html">Contact</a>
+            <a href="#about">About Us</a>
+
+            <a href="login.html" id="loginLink">Login</a>
+
+            <div class="profile-menu" id="profileMenu" style="display:none">
+                <span id="usernameDisplay" ondblclick="toggleProfile()">User</span>
+
+                <div class="profile-dropdown" id="profileDropdown">
+                    <a href="#">Profile</a>
+                    <a href="cart.html">My Orders</a>
+                    <a href="login.html" onclick="logout()">Logout</a>
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="cart-icon">
+            <i class="fa fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div>
+
+    </header>
+    <section class="contact-section">
+
+        <h1>Contact Us</h1>
+
+        <form class="contact-form">
+
+            <input type="text" placeholder="Your Name" required>
+
+            <input type="email" placeholder="Your Email" required>
+
+            <textarea placeholder="Your Message"></textarea>
+
+            <button type="submit">Send Message</button>
+
+        </form>
+
+    </section>
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- BRAND -->
+
+            <div class="footer-section">
+
+                <h2 class="footer-logo">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </h2>
+
+                <p>
+                    Your trusted destination for modern tech products.
+                    Shop smart, live smarter.
+                </p>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+
+            </div>
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer-section">
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <!-- SUPPORT -->
+
+            <div class="footer-section">
+
+                <h3>Customer Support</h3>
+
+                <a href="#">Help Center</a>
+                <a href="#">Shipping Info</a>
+                <a href="#">Returns</a>
+                <a href="#">Privacy Policy</a>
+
+            </div>
+
+
+            <!-- NEWSLETTER -->
+
+            <div class="footer-section">
+
+                <h3>Subscribe</h3>
+
+                <p>Get updates on new products and offers.</p>
+
+                <div class="subscribe-box">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>© 2026 ModernStore. All rights reserved.</p>
+
+        </div>
+
+    </footer>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

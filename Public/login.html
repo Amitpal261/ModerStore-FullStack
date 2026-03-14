@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- LOGIN SECTION -->
+
+    <section class="login-container">
+
+        <h2>Login</h2>
+
+        <form id="loginForm">
+
+            <input type="email" id="email" placeholder="Enter Email" required>
+
+            <input type="password" id="password" placeholder="Enter Password" required>
+
+            <button type="submit">Login</button>
+
+            <p class="signup-link">
+                Don't have an account? <a href="signup.html">Sign up</a>
+            </p>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-section">
+
+                <h2 class="footer-logo">
+                    <i class="fa-solid fa-bag-shopping"></i> ModernStore
+                </h2>
+
+                <p>
+                    Your trusted destination for modern tech products.
+                    Shop smart, live smarter.
+                </p>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>Customer Support</h3>
+
+                <a href="#">Help Center</a>
+                <a href="#">Shipping Info</a>
+                <a href="#">Returns</a>
+                <a href="#">Privacy Policy</a>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>Subscribe</h3>
+
+                <p>Get updates on new products and offers.</p>
+
+                <div class="subscribe-box">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>© 2026 ModernStore. All rights reserved.</p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- LOGIN SCRIPT -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const loginForm = document.getElementById("loginForm")
+
+            loginForm.addEventListener("submit", async function (e) {
+
+                e.preventDefault()
+
+                const email = document.getElementById("email").value
+                const password = document.getElementById("password").value
+
+                try {
+
+                    const res = await fetch("/api/auth/login", {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            email,
+                            password
+                        })
+
+                    })
+
+                    const data = await res.json()
+
+                    if (data.token) {
+                      // localStorage.removeItem("cart")   
+                        localStorage.setItem("token", data.token)
+
+                        alert("Login successful")
+
+                        window.location.href = "index.html"
+
+                    } else {
+
+                        alert(data.message)
+
+                    }
+
+                } catch (error) {
+
+                    alert("Server error")
+
+                }
+
+            })
+
+        })
+
+    </script>
+
+</body>
+
+</html>
