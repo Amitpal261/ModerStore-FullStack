@@ -172,8 +172,8 @@ Database:
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](assets/home 1.png)
-![Home Page](assets/home 2.png)
+![Home Page](assets/home1.png)
+![Home Page](assets/home2.png)
 ![Home Footer](assets/footer.png)
 ![Home Responsive](assets/responsive.png)
 
@@ -193,9 +193,9 @@ Manage selected products.
 Manage all queries with contact information.
 
 ### Product Page
-![About Page](assets/about 1.png)
-![About People](assets/about 2.png)
-![About Cards](assets/about card.png)
+![About Page](assets/about1.png)
+![About People](assets/about2.png)
+![About Cards](assets/aboutcard.png)
 Here is modern about use page with features
 ### Authentication
 ![Signup page](assets/signup.png)
