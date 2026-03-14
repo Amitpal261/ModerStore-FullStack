@@ -229,8 +229,8 @@ Secure login and signup system.
 
 **Amit Pal**
 
-* GitHub: https://github.com/yourusername
-* LinkedIn: https://linkedin.com/in/yourprofile
+* GitHub: https://github.com/Amitpal261
+* LinkedIn: https://linkedin.com/in/amitpal
 
 ---
 
